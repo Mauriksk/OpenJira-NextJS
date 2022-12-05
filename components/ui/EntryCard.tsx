@@ -1,21 +1,36 @@
-import { Card, CardActionArea, CardActions, CardContent, Typography } from '@mui/material'
-import React from 'react'
+import {
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  Typography,
+} from "@mui/material";
+import React, { FC } from "react";
+import { Entry } from "../../interfaces/entry";
 
-export const EntryCard = () => {
+interface Props {
+  entry: Entry;
+}
+
+export const EntryCard: FC<Props> = ({ entry }) => {
   return (
     <Card
-        sx={{marginBottom: 1}}
-        //* Evento Drag
+      sx={{ marginBottom: 1 }}
+      //* Evento Drag
     >
-        <CardActionArea>
-            <CardContent>
-                <Typography sx={{whiteSpace: 'pre-line'}}>Esto es la descripcion</Typography>
-            </CardContent>
+      <CardActionArea>
+        <CardContent>
+          <Typography sx={{ whiteSpace: "pre-line" }}>
+            {entry.description}
+          </Typography>
+        </CardContent>
 
-            <CardActions sx={{display: 'flex', justifyContent: 'end', paddingRight: 2}}>
-                <Typography variant='body2'>hace 30 minutos</Typography>
-            </CardActions>
-        </CardActionArea>
+        <CardActions
+          sx={{ display: "flex", justifyContent: "end", paddingRight: 2 }}
+        >
+          <Typography variant="body2">hace 30 minutos</Typography>
+        </CardActions>
+      </CardActionArea>
     </Card>
-  )
-}
+  );
+};
